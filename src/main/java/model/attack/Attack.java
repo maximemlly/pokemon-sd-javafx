@@ -1,6 +1,6 @@
 package model.attack;
 
-public class Attack {
+public class Attack implements Effect {
     private String name;
     private int power;
     private String type;

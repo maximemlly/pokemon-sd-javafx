@@ -1,4 +1,10 @@
 package model.attack;
 
-public class Effect {
+import model.pokemon.Pokemon;
+
+public interface Effect {
+
+    private void applyEffect(Pokemon attacker, Pokemon defender) {
+
+    }
 }
