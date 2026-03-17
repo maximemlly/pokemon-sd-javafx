@@ -1,5 +1,5 @@
 package model.player;
 
-public class Team extends Player {
+public class Team {
 
 }
