@@ -1,0 +1,64 @@
+CREATE TABLE types (
+    name TEXT PRIMARY KEY
+);
+
+CREATE TABLE type_matchups (
+    attacker TEXT,
+    defender TEXT,
+    multiplier REAL,
+    PRIMARY KEY (attacker, defender),
+    FOREIGN KEY (attacker) REFERENCES types(name),
+    FOREIGN KEY (defender) REFERENCES types(name)
+);
+
+CREATE TABLE moves (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    power INTEGER,
+    type TEXT,
+    is_physical INTEGER,
+    pp INTEGER,
+    effect_type TEXT,
+    effect_chance REAL
+);
+
+CREATE TABLE abilities (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    description TEXT
+);
+
+CREATE TABLE items (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    description TEXT,
+    effect_type TEXT
+);
+
+CREATE TABLE pokemon (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    hp INTEGER,
+    attack INTEGER,
+    defense INTEGER,
+    special_attack INTEGER,
+    special_defense INTEGER,
+    speed INTEGER,
+    ability_id INTEGER,
+    FOREIGN KEY (ability_id) REFERENCES abilities(id)
+);
+
+CREATE TABLE pokemon_types (
+    pokemon_id INTEGER,
+    type TEXT,
+    PRIMARY KEY (pokemon_id, type),
+    FOREIGN KEY (pokemon_id) REFERENCES pokemon(id)
+);
+
+CREATE TABLE pokemon_moves (
+    pokemon_id INTEGER,
+    move_id INTEGER,
+    PRIMARY KEY (pokemon_id, move_id),
+    FOREIGN KEY (pokemon_id) REFERENCES pokemon(id),
+    FOREIGN KEY (move_id) REFERENCES moves(id)
+);
