@@ -20,8 +20,8 @@ Récréer l'entièreté des mécanique de Pokémon Showdown en utilisant uniquem
 |--------------------|------|
 | Architecture   | ![done](https://img.shields.io/badge/✔_Terminé-green) |
 | CPU   | ![wip](https://img.shields.io/badge/⏳_En_cours-orange) |
-| Liste des Pokémon et des attaques   | ![wip](https://img.shields.io/badge/⏳_En_cours-orange) |
-| Système de combat | ![todo](https://img.shields.io/badge/À_venir-lightgrey) |
+| Liste des Pokémon et des attaques   | ![done](https://img.shields.io/badge/✔_Terminé-green) |
+| Système de combat | ![done](https://img.shields.io/badge/✔_Terminé-green) |
 | Interfaces | ![todo](https://img.shields.io/badge/À_venir-lightgrey) |
 
 ## Release date
