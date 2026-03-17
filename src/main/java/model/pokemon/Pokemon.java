@@ -1,5 +1,7 @@
 package model.pokemon;
 
+import model.attack.Attack;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,16 +30,13 @@ public class Pokemon {
     private int specialDefenseStage;
     private int speedStage;
 
+    private int lastDamageTaken;
+
     public Pokemon(String name,
-                   int hp,
-                   int attack,
-                   int defense,
-                   int specialAttack,
-                   int specialDefense, int speed,
-                   List<Type> types,
-                   List<Attack> moves,
-                   Ability ability,
-                   Item item) {
+                   int hp, int attack, int defense,
+                   int specialAttack, int specialDefense, int speed,
+                   List<Type> types, List<Attack> moves,
+                   Ability ability, Item item) {
         this.name = name;
         this.baseHp = hp;
         this.currentHp = hp;
@@ -90,7 +89,9 @@ public class Pokemon {
     }
 
     public void takeDamage(int damage) {
+        int actual = Math.min(currentHp, damage);
         currentHp = Math.max(0, currentHp - damage);
+        this.lastDamageTaken = actual;
     }
 
     public void heal(int amount) {
@@ -193,6 +194,10 @@ public class Pokemon {
 
     public int getSpecialAttackStage() {
         return specialAttackStage;
+    }
+
+    public int getLastDamageTaken() {
+        return(lastDamageTaken);
     }
 
     public void setStatus(Status status) {

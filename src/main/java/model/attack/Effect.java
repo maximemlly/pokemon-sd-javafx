@@ -4,7 +4,6 @@ import model.pokemon.Pokemon;
 
 public interface Effect {
 
-    private void applyEffect(Pokemon attacker, Pokemon defender) {
-
-    }
+    void apply(Pokemon attacker, Pokemon defender);
+    String getDescription();
 }
