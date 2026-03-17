@@ -29,6 +29,6 @@ Récréer l'entièreté des mécanique de Pokémon Showdown en utilisant uniquem
 ## Contributeurs
 | Profil | Membre | Rôle |
 | :---: | :--- | :--- |
-| <a href="https://github.com/maximemlly"><img src="https://github.com/maximemlly.png" width="50"></a> | [**@maximemlly**](https://github.com/maximemlly) | 🖥️ Archtecture / BDD / Système de combat |
+| <a href="https://github.com/maximemlly"><img src="https://github.com/maximemlly.png" width="50"></a> | [**@maximemlly**](https://github.com/maximemlly) | 🖥️ Architecture / BDD / Système de combat |
 | <a href="https://github.com/devilishlyney"><img src="https://github.com/devilishlyney.png" width="50"></a> | [**@devilishlyney**](https://github.com/devilishlyney) | 🧠 CPU / Interfaces |
 
