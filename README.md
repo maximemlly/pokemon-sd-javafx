@@ -3,7 +3,8 @@
 </div>
 <br>
 
-# Pokémon Showdown! : JavaFX Edition
+# Pokémon Showdown! : JavaFX Editio
+
 Pokémon Showdown récréé entièrment avec JavaFX.
 
 ## Pokémon SD, c'est quoi ?
@@ -32,3 +33,6 @@ Récréer l'entièreté des mécanique de Pokémon Showdown en utilisant uniquem
 | <a href="https://github.com/maximemlly"><img src="https://github.com/maximemlly.png" width="50"></a> | [**@maximemlly**](https://github.com/maximemlly) | 🖥️ Architecture / BDD / Système de combat |
 | <a href="https://github.com/devilishlyney"><img src="https://github.com/devilishlyney.png" width="50"></a> | [**@devilishlyney**](https://github.com/devilishlyney) | 🧠 CPU / Interfaces |
 
+## Outils et langages
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![JavaFX](https://img.shields.io/badge/JavaFX-5382A1?style=for-the-badge&logo=openjdk&logoColor=white)
