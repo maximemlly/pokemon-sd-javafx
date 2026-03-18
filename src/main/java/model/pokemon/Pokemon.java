@@ -55,6 +55,29 @@ public class Pokemon {
         this.speedStage = 0;
     }
 
+    public Pokemon(Pokemon original, List<Attack> newMoves) {
+        this.name = original.name;
+        this.baseHp = original.baseHp;
+        this.currentHp = original.baseHp;
+        this.attack = original.attack;
+        this.defense = original.defense;
+        this.specialAttack = original.specialAttack;
+        this.specialDefense = original.specialDefense;
+        this.speed = original.speed;
+        this.types = new ArrayList<>(original.types);
+        this.moves = new ArrayList<>(newMoves);
+        this.ability = original.ability;
+        this.item = original.item;
+        this.status = Status.NONE;
+        // Reset stages
+        this.attackStage = 0;
+        this.defenseStage = 0;
+        this.specialAttackStage = 0;
+        this.specialDefenseStage = 0;
+        this.speedStage = 0;
+        this.lastDamageTaken = 0;
+    }
+
     public int getEffectiveAttack() {
         double multiplier = getStageMultiplier(attackStage);
         if(status == Status.BURN) {

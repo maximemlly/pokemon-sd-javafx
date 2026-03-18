@@ -20,7 +20,7 @@
     
     <!-- Barre d'outils -->
     <HBox spacing="10.0">
-        <ComboBox fx:id="pokemonSelector" promptText="Choisir un Pokémon"/>
+        <ComboBox fx:id="pokemonSelector" promptText="Choisir un Pokémon" HBox.hgrow="ALWAYS"/>
         <Button fx:id="addButton" text="Ajouter" onAction="#addPokemon"/>
         <Button fx:id="removeButton" text="Retirer" onAction="#removePokemon"/>
         <Button fx:id="startButton" text="Commencer le combat" 
@@ -28,9 +28,35 @@
     </HBox>
     
     <!-- Liste des Pokémon de l'équipe -->
-    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+    <Label text="Votre Équipe:" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" prefHeight="200.0">
         <VBox fx:id="teamContainer" spacing="10.0"/>
     </ScrollPane>
+    
+    <!-- Sélecteur de moves pour le Pokémon sélectionné -->
+    <Separator/>
+    <Label text="Choisir les attaques du Pokémon:" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+    <GridPane hgap="10.0" vgap="5.0">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="40"/>
+            <ColumnConstraints percentWidth="60"/>
+        </columnConstraints>
+        
+        <Label text="Slot 1:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="moveSlot1" GridPane.rowIndex="0" GridPane.columnIndex="1" promptText="Choisir une attaque"/>
+        
+        <Label text="Slot 2:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="moveSlot2" GridPane.rowIndex="1" GridPane.columnIndex="1" promptText="Choisir une attaque"/>
+        
+        <Label text="Slot 3:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="moveSlot3" GridPane.rowIndex="2" GridPane.columnIndex="1" promptText="Choisir une attaque"/>
+        
+        <Label text="Slot 4:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="moveSlot4" GridPane.rowIndex="3" GridPane.columnIndex="1" promptText="Choisir une attaque"/>
+    </GridPane>
+    
+    <!-- Bouton pour appliquer les moves -->
+    <Button fx:id="applyMovesButton" text="Appliquer les attaques" onAction="#applyMoves"/>
     
     <!-- Informations -->
     <HBox spacing="10.0">

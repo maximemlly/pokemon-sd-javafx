@@ -153,4 +153,9 @@ public class DataLoader {
         }
         return moves;
     }
+
+    public List<Attack> loadAllMoves() throws SQLException {
+        Map<Integer, Attack> movesMap = loadMoves();
+        return new ArrayList<>(movesMap.values());
+    }
 }
