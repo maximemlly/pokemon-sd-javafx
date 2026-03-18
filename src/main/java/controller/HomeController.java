@@ -18,8 +18,10 @@ public class HomeController {
     }
 
     @FXML
-    private void startGame(ActionEvent event) throws IOException { // Change ici
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("TeamBuilder.fxml"));
+    private void startGame(ActionEvent event) throws IOException {
+        // CHANGE THIS LINE: Add a leading slash "/"
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/TeamBuilder.fxml"));
+        
         Parent root = loader.load();
         
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

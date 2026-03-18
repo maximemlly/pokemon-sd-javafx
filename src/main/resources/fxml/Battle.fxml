@@ -1,14 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
+<AnchorPane xmlns="http://javafx.com/javafx/21" 
+            xmlns:fx="http://javafx.com/fxml/1" 
             fx:controller="controller.BattleController"
-            prefHeight="400.0" prefWidth="600.0">
+            prefHeight="600.0" prefWidth="800.0"
+            style="-fx-background-color: #f0f0f0;">
 
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <!-- Top Section: Enemy (CPU) -->
+    <VBox prefHeight="150.0" AnchorPane.topAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <padding>
+            <Insets bottom="10"/>
+        </padding>
+        
+        <!-- Enemy Info Box -->
+        <HBox spacing="15" alignment="CENTER_LEFT">
+            <padding>
+                <Insets left="10" right="10"/>
+            </padding>
+            
+            <VBox fx:id="enemyInfoBox" HBox.hgrow="ALWAYS">
+                <Label fx:id="enemyNameLabel" text="Enemy Pokémon" style="-fx-font-weight: bold; -fx-font-size: 16px;"/>
+                
+                <!-- Enemy HP Bar Background -->
+                <Rectangle fx:id="enemyHpBarBg" width="200" height="15" fill="#ddd" stroke="black" strokeWidth="1"/>
+                <!-- Enemy HP Bar Fill -->
+                <Rectangle fx:id="enemyHpBarFill" width="200" height="15" fill="#4CAF50" stroke="transparent"/>
+                
+                <HBox spacing="5" alignment="CENTER_RIGHT">
+                    <Label fx:id="enemyHpText" text="HP: 100/100" style="-fx-font-size: 12px;"/>
+                    <Label fx:id="enemyLevelLabel" text="Lv. 50" style="-fx-font-size: 12px;"/>
+                </HBox>
+            </VBox>
+            
+            <!-- Enemy Sprite Placeholder (Optional: Add ImageView later) -->
+            <Label text="👾" style="-fx-font-size: 60px;"/>
+        </HBox>
+    </VBox>
+
+    <!-- Middle Section: Visual Battle Area -->
+    <AnchorPane AnchorPane.topAnchor="150.0" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        
+        <!-- Enemy Sprite (Visual) -->
+        <Label text="👾" style="-fx-font-size: 100px;" AnchorPane.rightAnchor="50.0" AnchorPane.bottomAnchor="20.0"/>
+        
+        <!-- Player Sprite (Visual) -->
+        <Label text="🐱" style="-fx-font-size: 100px;" AnchorPane.leftAnchor="50.0" AnchorPane.bottomAnchor="20.0"/>
+        
+        <!-- Floating Text for Damage/Effects (Optional dynamic updates) -->
+        <Label fx:id="floatingText" text="" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-fill: red;" 
+               AnchorPane.centerAnchor="true" visible="false"/>
+    </AnchorPane>
+
+    <!-- Bottom Section: Player & Controls -->
+    <VBox prefHeight="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        
+        <!-- Player Info Box -->
+        <HBox spacing="15" alignment="CENTER_LEFT" style="-fx-background-color: white; -fx-padding: 10; -fx-border-radius: 5;">
+            <padding>
+                <Insets top="10" bottom="10" left="10" right="10"/>
+            </padding>
+            
+            <VBox HBox.hgrow="ALWAYS">
+                <Label fx:id="playerNameLabel" text="Your Pokémon" style="-fx-font-weight: bold; -fx-font-size: 16px;"/>
+                
+                <!-- Player HP Bar Background -->
+                <Rectangle fx:id="playerHpBarBg" width="200" height="15" fill="#ddd" stroke="black" strokeWidth="1"/>
+                <!-- Player HP Bar Fill -->
+                <Rectangle fx:id="playerHpBarFill" width="200" height="15" fill="#4CAF50" stroke="transparent"/>
+                
+                <HBox spacing="5" alignment="CENTER_RIGHT">
+                    <Label fx:id="playerHpText" text="HP: 100/100" style="-fx-font-size: 12px;"/>
+                    <Label fx:id="playerLevelLabel" text="Lv. 50" style="-fx-font-size: 12px;"/>
+                </HBox>
+            </VBox>
+            
+            <Label text="🐱" style="-fx-font-size: 60px;"/>
+        </HBox>
+
+        <!-- Action Area -->
+        <HBox spacing="10" style="-fx-background-color: white; -fx-padding: 10; -fx-border-radius: 5; -fx-margin-top: 10;">
+            <padding>
+                <Insets top="10" bottom="10" left="10" right="10"/>
+            </padding>
+            
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="Choose an action:" style="-fx-font-weight: bold;"/>
+                <HBox spacing="5">
+                    <Button fx:id="btnMove1" text="Move 1" onAction="#handleMove1" prefWidth="100.0"/>
+                    <Button fx:id="btnMove2" text="Move 2" onAction="#handleMove2" prefWidth="100.0"/>
+                    <Button fx:id="btnMove3" text="Move 3" onAction="#handleMove3" prefWidth="100.0"/>
+                    <Button fx:id="btnMove4" text="Move 4" onAction="#handleMove4" prefWidth="100.0"/>
+                </HBox>
+                <HBox spacing="5">
+                    <Button fx:id="btnSwitch" text="Switch Pokémon" onAction="#handleSwitch" prefWidth="100.0"/>
+                    <Button fx:id="btnRun" text="Run Away" onAction="#handleRun" prefWidth="100.0"/>
+                    <Button fx:id="btnNext" text="Next Turn" onAction="#handleNextTurn" prefWidth="100.0" visible="false"/>
+                </HBox>
+            </VBox>
+            
+            <!-- Battle Log -->
+            <ScrollPane fitToWidth="true" HBox.hgrow="ALWAYS">
+                <TextArea fx:id="battleLog" editable="false" wrapText="true" 
+                          style="-fx-font-family: monospace; -fx-font-size: 12px;"/>
+            </ScrollPane>
+        </HBox>
+    </VBox>
 </AnchorPane>
