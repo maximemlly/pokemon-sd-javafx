@@ -3,7 +3,7 @@
 </div>
 <br>
 
-# Pokémon Showdown! : JavaFX Editio
+# Pokémon Showdown! : JavaFX Edition
 
 Pokémon Showdown récréé entièrment avec JavaFX.
 
