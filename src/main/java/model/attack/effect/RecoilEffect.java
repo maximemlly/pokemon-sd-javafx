@@ -18,6 +18,6 @@ public class RecoilEffect implements Effect {
 
     @Override
     public String getDescription() {
-        return (int)(ratio * 100) + "% damages taken";
+        return (int)(ratio * 100) + "% damage taken";
     }
 }

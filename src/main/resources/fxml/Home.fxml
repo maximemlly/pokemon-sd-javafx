@@ -11,4 +11,5 @@
             fx:controller="controller.HomeController"
             prefHeight="400.0" prefWidth="600.0">
 
+    <Button text="Start Game" onAction="#startGame"/>
 </AnchorPane>
