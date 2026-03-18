@@ -38,7 +38,7 @@ public class DataLoader {
                 int  id = rs.getInt("id");
                 String name = rs.getString("name");
                 String desc = rs.getString("description");
-                abilities.put(id, new Ability(name, desc));
+                abilities.put(id, new ConcreteAbility(name, desc));
             }
         }
         return abilities;

@@ -1,29 +1,32 @@
 package model.player;
 
-public class CPU {
+import model.attack.Attack;
+import model.pokemon.Pokemon;
 
-    /*
-    DefensiveStrategy() {
-        if (CPU pokemon has move where effect is on self (heal, shield)) {
-            CPU pokemon use move where effect is on self (heal, shield)
-        }
-        else {
-            randomly select a move from CPU pokemon move list
-            return selected move
-        }
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class CPU extends Player {
+
+    private final Random random = new Random();
+
+    public CPU(String name, Team team) {
+        super(name, team);
     }
 
-    OffensiveStrategy() {
-        if (CPU pokemon has move where type is super effective against opponent pokemon type) {
-            CPU pokemon use move where type is super effective against opponent pokemon type
+    @Override
+    public Attack chooseAttack() {
+        Pokemon active = getActivePokemon();
+        if (active == null) return null;
+
+        List<Attack> usable = new ArrayList<>();
+        for (Attack a : active.getMoves()) {
+            if (a.getCurrentPp() > 0) usable.add(a);
         }
-        else if (CPU pokemon has any attack move) {
-            CPU pokemon use random attack move
-        }
-        else {
-            randomly select a move from CPU pokemon move list
-            return selected move
-        }
+
+        if (usable.isEmpty()) return null;
+
+        return usable.get(random.nextInt(usable.size()));
     }
-    */
 }
