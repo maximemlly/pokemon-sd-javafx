@@ -8,9 +8,9 @@ import model.attack.effect.PoisonEffect;
 import model.pokemon.Ability;
 import model.pokemon.Pokemon;
 import model.pokemon.Type;
-
-import java.sql.Connection;
-import java.sql.SQLException;
+import model.pokemon.abilities.Blaze;
+import model.pokemon.abilities.Immunity;
+import model.pokemon.abilities.Levitate;
 
 import java.sql.*;
 import java.util.*;
@@ -35,10 +35,28 @@ public class DataLoader {
         try(Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(query)) {
             while(rs.next()) {
-                int  id = rs.getInt("id");
+                int id = rs.getInt("id");
                 String name = rs.getString("name");
                 String desc = rs.getString("description");
-                abilities.put(id, new ConcreteAbility(name, desc));
+                
+                // Map to specific ability classes based on name
+                Ability ability = null;
+                switch(name.toLowerCase()) {
+                    case "brasier":
+                    case "blaze":
+                        ability = new Blaze();
+                        break;
+                    case "vaccin":
+                    case "immunity":
+                        ability = new Immunity();
+                        break;
+                    case "lévitation":
+                    case "levitate":
+                        ability = new Levitate();
+                        break;
+                }
+                
+                abilities.put(id, ability);
             }
         }
         return abilities;
