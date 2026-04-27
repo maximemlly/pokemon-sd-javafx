@@ -19,10 +19,10 @@ Récréer l'entièreté des mécanique de Pokémon Showdown en utilisant uniquem
 | Fonctionnalité     | État |
 |--------------------|------|
 | Architecture   | ![done](https://img.shields.io/badge/✔_Terminé-green) |
-| CPU   | ![wip](https://img.shields.io/badge/⏳_En_cours-orange) |
+| CPU   | ![done](https://img.shields.io/badge/✔_Terminé-green) |
 | Liste des Pokémon et des attaques   | ![done](https://img.shields.io/badge/✔_Terminé-green) |
 | Système de combat | ![done](https://img.shields.io/badge/✔_Terminé-green) |
-| Interfaces | ![wip](https://img.shields.io/badge/⏳_En_cours-orange) |
+| Interfaces | ![done](https://img.shields.io/badge/✔_Terminé-green) |
 
 ## Release date
 🚨 **18 mars 2026** - Available soon!
